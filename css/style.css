@@ -1,0 +1,605 @@
+/* =========================================================
+   Stream Ring · Trabajo de IPO
+   Paleta:
+     Fondo oscuro     #121417
+     Fondo tarjetas   #1d2025
+     Bordes           #34383f
+     Texto            #eeeae3
+     Texto suave      #b9b5ae
+     Verde menta      #6ff0c8
+     Dorado           #e0c084
+   ========================================================= */
+
+
+/* ---------- 1. Base ---------- */
+html {
+  scroll-padding-top: 5rem; /* espacio que deja el menú pegado al saltar a un ancla */
+}
+
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: #eeeae3;
+  background-color: #121417;
+}
+
+
+/* ---------- 2. Encabezados ---------- */
+h1, h2, h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 4.5rem;
+  margin: 0;
+  color: #ffffff;
+}
+
+h2 {
+  font-size: 2.3rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  border-bottom: 3px solid #6ff0c8;
+  display: inline-block;
+  padding-bottom: 0.3rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+  color: #6ff0c8;
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+}
+
+
+/* ---------- 3. Texto y énfasis ---------- */
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+strong {
+  color: #ffffff;
+}
+
+em {
+  color: #e0c084;
+}
+
+
+/* ---------- 4. Enlaces ---------- */
+a {
+  color: #6ff0c8;
+}
+
+a:hover {
+  color: #e0c084;
+}
+
+a:focus-visible {
+  outline: 3px solid #e0c084;
+  outline-offset: 3px;
+}
+
+
+/* ---------- 5. Enlace «Saltar al contenido» ---------- */
+.saltar {
+  position: absolute;
+  top: -4rem;
+  left: 1rem;
+  background-color: #6ff0c8;
+  color: #121417;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  z-index: 20;
+}
+
+.saltar:focus {
+  top: 1rem;
+}
+
+
+/* ---------- 6. Cabecera ---------- */
+header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3rem;
+  padding: 4rem 6%;
+  background-color: #0b0c0e;
+  border-bottom: 1px solid #34383f;
+}
+
+.cabecera-texto {
+  flex: 1 1 26rem;
+}
+
+.antetitulo {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #6ff0c8;
+}
+
+.lema {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 2.2rem;
+  color: #b9b5ae;
+  margin-bottom: 1.5rem;
+}
+
+.entradilla {
+  font-size: 1.2rem;
+  color: #b9b5ae;
+  max-width: 34rem;
+  margin-bottom: 2rem;
+}
+
+.boton {
+  display: inline-block;
+  background-color: #6ff0c8;
+  color: #121417;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
+  box-shadow: 4px 4px 0 #e0c084;
+}
+
+.boton:hover {
+  background-color: #e0c084;
+  color: #121417;
+  box-shadow: 4px 4px 0 #6ff0c8;
+}
+
+/* Foto de la cabecera con una etiqueta en la esquina */
+.cabecera-foto {
+  flex: 1 1 20rem;
+  position: relative; /* la etiqueta se coloca respecto a esta caja */
+  margin: 0;
+}
+
+.cabecera-foto img {
+  display: block;
+  width: 100%;
+  height: 24rem;
+  object-fit: cover;
+  border-radius: 24px;
+  border: 1px solid #34383f;
+}
+
+.etiqueta {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  background-color: #e0c084;
+  color: #121417;
+  font-weight: bold;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  transform: rotate(6deg);
+}
+
+
+/* ---------- 7. Menú pegado arriba ---------- */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #121417;
+  border-bottom: 1px solid #34383f;
+  padding: 0.6rem 1rem;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+nav a {
+  display: block;
+  color: #b9b5ae;
+  text-decoration: none;
+  padding: 0.4rem 1rem;
+  border: 1px solid #34383f;
+  border-radius: 999px;
+}
+
+nav a:hover {
+  color: #121417;
+  background-color: #6ff0c8;
+  border-color: #6ff0c8;
+}
+
+
+/* ---------- 8. Contenido principal y secciones ---------- */
+main {
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+section {
+  padding: 4.5rem 0;
+  border-bottom: 1px solid #34383f;
+}
+
+section > p {
+  max-width: 50rem;
+  color: #b9b5ae;
+}
+
+
+/* ---------- 9. Qué es: dos columnas ---------- */
+.dos-columnas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+}
+
+.columna-texto {
+  flex: 2 1 26rem;
+}
+
+.ficha {
+  flex: 1 1 18rem;
+  background-color: #1d2025;
+  border: 1px solid #34383f;
+  border-radius: 18px;
+  padding: 1.5rem;
+}
+
+.ficha ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.ficha li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #34383f;
+  color: #b9b5ae;
+  font-size: 0.95rem;
+}
+
+.ficha li:last-child {
+  border-bottom: none;
+}
+
+blockquote {
+  margin: 2rem 0;
+  padding: 1rem 1.5rem;
+  border-left: 5px solid #e0c084;
+  background-color: #1d2025;
+  border-radius: 0 12px 12px 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 1.4rem;
+}
+
+blockquote p {
+  margin-bottom: 0.3rem;
+}
+
+blockquote .autor {
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+  font-style: normal;
+  font-size: 0.9rem;
+  color: #b9b5ae;
+}
+
+
+/* ---------- 10. Fotos ---------- */
+.fotos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.fotos figure {
+  flex: 1 1 18rem;
+  margin: 0;
+  background-color: #1d2025;
+  border: 1px solid #34383f;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.fotos img {
+  display: block;
+  width: 100%;
+  height: 26rem;
+  object-fit: cover;
+}
+
+figcaption {
+  padding: 0.8rem 1rem;
+  font-size: 0.9rem;
+  color: #b9b5ae;
+}
+
+
+/* ---------- 11. Tarjetas de beneficios ---------- */
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.tarjeta {
+  flex: 1 1 18rem;
+  background-color: #1d2025;
+  border: 1px solid #34383f;
+  border-top: 4px solid #6ff0c8;
+  border-radius: 18px;
+  padding: 1.5rem;
+}
+
+.tarjeta:hover {
+  border-color: #e0c084;
+}
+
+.tarjeta p {
+  color: #b9b5ae;
+  font-size: 0.97rem;
+  margin-bottom: 0;
+}
+
+
+/* ---------- 12. Pasos ---------- */
+.pasos {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.pasos li {
+  flex: 1 1 13rem;
+  background-color: #1d2025;
+  border: 1px solid #34383f;
+  border-radius: 18px;
+  padding: 1.5rem;
+}
+
+.pasos p {
+  color: #b9b5ae;
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+.aviso {
+  border-left: 5px solid #e0c084;
+  background-color: #1d2025;
+  padding: 1rem 1.5rem;
+  border-radius: 0 12px 12px 0;
+}
+
+
+/* ---------- 13. Línea del tiempo ---------- */
+.linea-tiempo {
+  list-style: none;
+  margin: 0;
+  padding-left: 1.5rem;
+  border-left: 3px solid #6ff0c8;
+}
+
+.linea-tiempo li {
+  background-color: #1d2025;
+  border: 1px solid #34383f;
+  border-radius: 18px;
+  padding: 1.3rem 1.6rem;
+  margin-bottom: 1.8rem;
+}
+
+.linea-tiempo p {
+  color: #b9b5ae;
+  margin-bottom: 0;
+}
+
+.linea-tiempo .fecha {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #e0c084;
+  margin-bottom: 0.3rem;
+}
+
+.linea-tiempo .destacado {
+  border: 2px solid #6ff0c8;
+  background-color: #1a2a26;
+}
+
+
+
+/* ---------- 14. Tabla comparativa ---------- */
+.tabla-con-scroll {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  min-width: 46rem;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+caption {
+  caption-side: top;
+  text-align: left;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 0.8rem;
+}
+
+th, td {
+  border: 1px solid #34383f;
+  padding: 0.8rem 1rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+thead th {
+  background-color: #6ff0c8;
+  color: #121417;
+}
+
+tbody th[scope="row"] {
+  background-color: #1d2025;
+  color: #ffffff;
+}
+
+tbody td {
+  color: #b9b5ae;
+}
+
+tbody tr:nth-child(even) td {
+  background-color: #171a1e;
+}
+
+.fila-destacada td,
+.fila-destacada th[scope="row"] {
+  background-color: #1a2a26;
+  color: #6ff0c8;
+  font-weight: bold;
+}
+
+
+/* ---------- 15. Limitaciones ---------- */
+.contras {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.contras li {
+  flex: 1 1 22rem;
+  background-color: #1d2025;
+  border: 1px solid #34383f;
+  border-left: 5px solid #e0c084;
+  border-radius: 12px;
+  padding: 1rem 1.3rem;
+  color: #b9b5ae;
+}
+
+
+/* ---------- 16. Conclusión ---------- */
+#conclusion {
+  text-align: center;
+}
+
+#conclusion p {
+  max-width: 48rem;
+  margin: 0 auto;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.3rem;
+}
+
+
+/* ---------- 17. Enlaces de más información ---------- */
+.enlaces {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.enlaces li {
+  flex: 1 1 15rem;
+  background-color: #1d2025;
+  border: 1px solid #34383f;
+  border-radius: 18px;
+  padding: 1.3rem;
+}
+
+.enlaces li:first-child {
+  border: 2px solid #6ff0c8;
+}
+
+.enlaces a {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.15rem;
+  font-weight: bold;
+}
+
+.enlaces p {
+  color: #b9b5ae;
+  font-size: 0.9rem;
+  margin: 0.5rem 0 0 0;
+}
+
+
+/* ---------- 18. Pie de página ---------- */
+footer {
+  text-align: center;
+  padding: 2.5rem 1rem 5rem 1rem;
+  background-color: #0b0c0e;
+  color: #b9b5ae;
+  font-size: 0.95rem;
+}
+
+footer p {
+  margin-bottom: 0.4rem;
+}
+
+
+/* ---------- 19. Botón fijo «Volver arriba» ---------- */
+.arriba {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 10;
+  padding: 0.5rem 1rem;
+  background-color: #6ff0c8;
+  color: #121417;
+  font-weight: bold;
+  border-radius: 999px;
+  box-shadow: 3px 3px 0 #e0c084;
+  text-decoration: none;
+}
+
+.arriba:hover {
+  background-color: #e0c084;
+  color: #121417;
+}
+
+
+/* ---------- 20. Pantallas estrechas ---------- */
+@media (max-width: 50rem) {
+  nav {
+    position: static;
+  }
+  html {
+    scroll-padding-top: 0;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+  header {
+    padding: 2.5rem 6%;
+  }
+  .cabecera-foto img {
+    height: 16rem;
+  }
+}
